@@ -554,6 +554,7 @@
     export default {
         data (){
             return {
+                appUrl: process.env.MIX_APP_URL,
                 quota_id : 0,
                 product_id : 0,
                 user_id : 0,
@@ -792,9 +793,7 @@
                 });
             },
             pdfQuota(id){
-                window.open('https://bacoop.com/admin/public/quota/pdf/'+ id + ','+ '_blank');
-                // window.open('https://bacoop.com/jm/public/quota/pdf/'+ id + ','+ '_blank');
-                // window.open('http://localhost/sale/public/quota/pdf/'+ id + ','+ '_blank');
+                window.open(this.appUrl + 'quota/pdf/'+ id  + ',' +'_blank');
             },
             changePage(page, search, criterion){
                 let me = this;
@@ -935,9 +934,7 @@
                     me.code='';
                     me.arrayDetail=[];
 
-                    window.open('https://bacoop.com/admin/public/quota/pdf/'+ id + ','+ '_blank');
-                    // window.open('https://bacoop.com/jm/public/quota/pdf/'+ id + ','+ '_blank');
-                    // window.open('http://localhost/sale/public/quota/pdf/'+ response.data.id + ','+ '_blank');
+                    window.open(me.appUrl + 'quota/pdf/'+ response.data.id + ','+ '_blank');
                     me.dim=0;
                 })
                 .catch(function (error) {
@@ -1032,9 +1029,7 @@
                     me.code='';
                     me.arrayDetail=[];
                     me.showQuota(response.data.id);
-                    window.open('https://bacoop.com/admin/public/sale/pdf/'+ response.data.id + ','+ '_blank');
-                    // window.open('https://bacoop.com/jm/public/sale/pdf/'+ response.data.id + ','+ '_blank');
-                    // window.open('http://localhost/sale/public/quota/pdf/'+ response.data.id + ','+ '_blank');
+                    window.open(me.appUrl + 'quota/pdf/'+ response.data.id + ','+ '_blank');
                     me.dim = 0;
                 })
                 .catch(function (error) {

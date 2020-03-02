@@ -4777,8 +4777,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     loadPdf: function loadPdf() {
-      window.open('https://bacoop.com/admin/public/product/listPdf', '_blank'); // window.open('https://bacoop.com/jm/public/product/listPdf', '_blank');
-      // window.open('http://localhost/sale/public/product/listPdf', '_blank');
+      // window.open('https://bacoop.com/admin/public/product/listPdf', '_blank');
+      window.open('https://bacoop.com/jm/public/product/listPdf', '_blank'); // window.open('http://localhost/sale/public/product/listPdf', '_blank');
     },
     categorySelect: function categorySelect() {
       var me = this;
@@ -6372,7 +6372,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
 /* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
 /* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_1__);
@@ -6930,6 +6930,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      appUrl: process.env.MIX_APP_URL,
       quota_id: 0,
       product_id: 0,
       user_id: 0,
@@ -7164,8 +7165,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     pdfQuota: function pdfQuota(id) {
-      window.open('https://bacoop.com/admin/public/quota/pdf/' + id + ',' + '_blank'); // window.open('https://bacoop.com/jm/public/quota/pdf/'+ id + ','+ '_blank');
-      // window.open('http://localhost/sale/public/quota/pdf/'+ id + ','+ '_blank');
+      window.open(this.appUrl + 'quota/pdf/' + id + ',' + '_blank');
     },
     changePage: function changePage(page, search, criterion) {
       var me = this; // actualiza la pagina
@@ -7302,9 +7302,7 @@ __webpack_require__.r(__webpack_exports__);
           me.stock = 0;
           me.code = '';
           me.arrayDetail = [];
-          window.open('https://bacoop.com/admin/public/quota/pdf/' + id + ',' + '_blank'); // window.open('https://bacoop.com/jm/public/quota/pdf/'+ id + ','+ '_blank');
-          // window.open('http://localhost/sale/public/quota/pdf/'+ response.data.id + ','+ '_blank');
-
+          window.open(me.appUrl + 'quota/pdf/' + response.data.id + ',' + '_blank');
           me.dim = 0;
         })["catch"](function (error) {
           console.log(error);
@@ -7394,9 +7392,7 @@ __webpack_require__.r(__webpack_exports__);
           me.code = '';
           me.arrayDetail = [];
           me.showQuota(response.data.id);
-          window.open('https://bacoop.com/admin/public/sale/pdf/' + response.data.id + ',' + '_blank'); // window.open('https://bacoop.com/jm/public/sale/pdf/'+ response.data.id + ','+ '_blank');
-          // window.open('http://localhost/sale/public/quota/pdf/'+ response.data.id + ','+ '_blank');
-
+          window.open(me.appUrl + 'quota/pdf/' + response.data.id + ',' + '_blank');
           me.dim = 0;
         })["catch"](function (error) {
           console.log(error);
@@ -7504,6 +7500,7 @@ __webpack_require__.r(__webpack_exports__);
     this.listQuota(1, this.search, this.name);
   }
 });
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -7684,7 +7681,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
 /* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
 /* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_1__);
@@ -8307,14 +8304,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      appUrl: process.env.MIX_APP_URL,
       sale_id: 0,
       product_id: 0,
       user_id: 0,
@@ -8582,8 +8577,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     pdfSale: function pdfSale(id) {
-      window.open('https://bacoop.com/admin/public/sale/pdf/' + id + ',' + '_blank'); // window.open('https://bacoop.com/jm/public/sale/pdf/'+ id + ','+ '_blank');
-      // window.open('http://localhost/sale/public/sale/pdf/'+ id + ','+ '_blank');
+      window.open(this.appUrl + '/sale/pdf/' + id + ',' + '_blank');
     },
     changePage: function changePage(page, search, criterion) {
       var me = this; // actualiza la pagina
@@ -8736,34 +8730,15 @@ __webpack_require__.r(__webpack_exports__);
           me.price = 0.0;
           me.stock = 0;
           me.code = '';
-          me.arrayDetail = []; // window.open('https://bacoop.com/admin/public/sale/pdf/'+ id + ','+ '_blank');
-          // window.open('https://bacoop.com/jm/public/sale/pdf/'+ id + ','+ '_blank');
-
-          window.open('http://localhost/sale/public/sale/pdf/' + response.data.id + ',' + '_blank');
+          me.arrayDetail = [];
+          window.open(me.appUrl + '/sale/pdf/' + response.data.id + ',' + '_blank');
           me.dim = 0;
-        })["catch"](function (error) {
-          console.log(error);
-        });
-        var urlp = 'sale/print';
-        axios.get(urlp).then(function (response) {
-          var response = response.data;
-          console.log(response);
         })["catch"](function (error) {
           console.log(error);
         });
       }
 
       ;
-    },
-    print: function print() {
-      var me = this;
-      var urlp = 'sale/print';
-      axios.post(urlp).then(function (response) {
-        var response = response.data;
-        console.log(response);
-      })["catch"](function (error) {
-        console.log(error);
-      });
     },
     editSale: function editSale(id) {
       var me = this;
@@ -8851,9 +8826,7 @@ __webpack_require__.r(__webpack_exports__);
           me.code = '';
           me.arrayDetail = [];
           me.showSale(response.data.id);
-          window.open('https://bacoop.com/admin/public/sale/pdf/' + response.data.id + ',' + '_blank'); // window.open('https://bacoop.com/jm/public/sale/pdf/'+ response.data.id + ','+ '_blank');
-          // window.open('http://localhost/sale/public/sale/pdf/'+ response.data.id + ','+ '_blank');
-
+          window.open(me.appUrl + '/sale/pdf/' + response.data.id + ',' + '_blank');
           me.dim = 0;
         })["catch"](function (error) {
           console.log(error);
@@ -8959,6 +8932,7 @@ __webpack_require__.r(__webpack_exports__);
     this.listSale(1, this.search, this.name);
   }
 });
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -10526,8 +10500,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     pdfRet: function pdfRet(id) {
-      window.open('https://bacoop.com/admin/public/sale/pdf/' + id + ',' + '_blank'); // window.open('https://bacoop.com/jm/public/sale/pdf/'+ id + ','+ '_blank');
-      // window.open('http://localhost/sale/public/retention/pdf/'+ id + ','+ '_blank');
+      // window.open('https://bacoop.com/admin/public/sale/pdf/'+ id + ','+ '_blank');
+      window.open('https://bacoop.com/jm/public/sale/pdf/' + id + ',' + '_blank'); // window.open('http://localhost/sale/public/retention/pdf/'+ id + ','+ '_blank');
     },
     changePage: function changePage(page, search, criterion) {
       var me = this; // actualiza la pagina
@@ -10541,8 +10515,8 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      me.dim = 1;
       var me = this;
+      me.dim = 1;
       axios.post('retention/register', {
         'provider_id': this.provider_id,
         'voucher_num': this.voucher_num,
@@ -68063,23 +68037,6 @@ var render = function() {
                 [
                   _c("i", { staticClass: "fa fa-file" }),
                   _vm._v("  Crear Factura\n                    ")
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-success",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      return _vm.print()
-                    }
-                  }
-                },
-                [
-                  _c("i", { staticClass: "fa fa-file" }),
-                  _vm._v("  imprimir\n                    ")
                 ]
               )
             ]),

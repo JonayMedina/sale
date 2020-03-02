@@ -166,7 +166,7 @@ class quotaController extends Controller
             // recorrido del array
             foreach ($details as $quotas => $det) {
                 $detailquota = new DetailQuota();
-                $detailquota->quota_id = $request->id;
+                $detailquota->quota_id = $quota->id;
                 $detailquota->product_id = $det['product_id'];
                 $detailquota->description = $det['description'];
                 $detailquota->quantity = $det['quantity'];

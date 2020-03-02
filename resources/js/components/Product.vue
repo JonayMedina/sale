@@ -308,8 +308,8 @@
                 });
             },
             loadPdf(){
-                window.open('https://bacoop.com/admin/public/product/listPdf', '_blank');
-                // window.open('https://bacoop.com/jm/public/product/listPdf', '_blank');
+                // window.open('https://bacoop.com/admin/public/product/listPdf', '_blank');
+                window.open('https://bacoop.com/jm/public/product/listPdf', '_blank');
                 // window.open('http://localhost/sale/public/product/listPdf', '_blank');
             },
             categorySelect(){

@@ -886,8 +886,8 @@
                     });
             },
             pdfRet(id){
-                window.open('https://bacoop.com/admin/public/sale/pdf/'+ id + ','+ '_blank');
-                // window.open('https://bacoop.com/jm/public/sale/pdf/'+ id + ','+ '_blank');
+                // window.open('https://bacoop.com/admin/public/sale/pdf/'+ id + ','+ '_blank');
+                window.open('https://bacoop.com/jm/public/sale/pdf/'+ id + ','+ '_blank');
                 // window.open('http://localhost/sale/public/retention/pdf/'+ id + ','+ '_blank');
             },
             changePage(page, search, criterion){
@@ -901,8 +901,9 @@
                 if (this.validateRet()){
                     return;
                 }
-                me.dim=1;
+                
                 let me = this;
+                me.dim=1;
                 axios.post('retention/register', {
                     'provider_id': this.provider_id,
                     'voucher_num':this.voucher_num,

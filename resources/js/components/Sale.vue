@@ -18,9 +18,6 @@
                         <button type="button" class="btn btn-success" @click="showDetail()">
                             <i class="fa fa-file"></i>&nbsp;&nbsp;Crear Factura
                         </button>
-                        <button type="button" class="btn btn-success" @click="print()">
-                            <i class="fa fa-file"></i>&nbsp;&nbsp;imprimir
-                        </button>
                     </div>
                     <!-- litado registros -->
                     <template v-if="list==1">
@@ -627,6 +624,7 @@
     export default {
         data (){
             return {
+                appUrl: process.env.MIX_APP_URL,
                 sale_id : 0,
                 product_id : 0,
                 user_id : 0,
@@ -904,9 +902,7 @@
                 });
             },
             pdfSale(id){
-                window.open('https://bacoop.com/admin/public/sale/pdf/'+ id + ','+ '_blank');
-                // window.open('https://bacoop.com/jm/public/sale/pdf/'+ id + ','+ '_blank');
-                // window.open('http://localhost/sale/public/sale/pdf/'+ id + ','+ '_blank');
+                window.open(this.appUrl + '/sale/pdf/'+ id + ','+ '_blank');
             },
             changePage(page, search, criterion){
                 let me = this;
@@ -1064,35 +1060,16 @@
                         me.code='';
                         me.arrayDetail=[];
 
-                        // window.open('https://bacoop.com/admin/public/sale/pdf/'+ id + ','+ '_blank');
-                        // window.open('https://bacoop.com/jm/public/sale/pdf/'+ id + ','+ '_blank');
-                         window.open('http://localhost/sale/public/sale/pdf/'+ response.data.id + ','+ '_blank');
+                        window.open(me.appUrl + '/sale/pdf/'+ response.data.id + ','+ '_blank');
                          me.dim=0;
                     })
                     .catch(function (error) {
                         console.log(error);
                     });
-                    var urlp = 'sale/print';
-                    axios.get(urlp).then(function(response){
-                        var response = response.data;
-                        console.log(response);
-                    })
-                    .catch(function(error) {
-                        console.log(error);
-                    })
+                    
                 };
             },
-            print(){
-                let me = this;
-                var urlp = 'sale/print';
-                    axios.post(urlp).then(function(response){
-                        var response = response.data;
-                        console.log(response);
-                    })
-                    .catch(function(error) {
-                        console.log(error);
-                    })
-            },
+            
             editSale(id){
                 let me = this;
                 me.list = 3;
@@ -1186,9 +1163,8 @@
                     me.code='';
                     me.arrayDetail=[];
                     me.showSale(response.data.id);
-                    window.open('https://bacoop.com/admin/public/sale/pdf/'+ response.data.id + ','+ '_blank');
-                    // window.open('https://bacoop.com/jm/public/sale/pdf/'+ response.data.id + ','+ '_blank');
-                    // window.open('http://localhost/sale/public/sale/pdf/'+ response.data.id + ','+ '_blank');
+                    
+                    window.open(me.appUrl + '/sale/pdf/'+ response.data.id + ','+ '_blank');
                     me.dim=0;
                 })
                 .catch(function (error) {
